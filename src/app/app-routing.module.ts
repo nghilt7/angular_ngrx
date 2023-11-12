@@ -1,10 +1,8 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {Route} from "@angular/router";
 
-const routes: Routes = [];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+export const appRoutes: Route[] = [
+  {
+    path: 'register',
+    loadChildren: () => import('src/app/auth/auth.routes').then(m => m.registerRoutes)
+  }
+]
